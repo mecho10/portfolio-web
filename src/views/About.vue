@@ -56,7 +56,7 @@ export default {
     <!-- 個人簡介 -->
     <section>
       <div class="card">
-        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center;">
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center;" class="about-intro">
           <div style="text-align: center;">
             <div style="width: 200px; height: 200px; border-radius: 50%; margin: 0 auto 1.5rem; overflow: hidden; border: 4px solid #667eea; box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);">
               <img :src="resumePhoto" alt="Chang Leroy" style="width: 100%; height: 100%; object-fit: cover;">
@@ -237,12 +237,12 @@ export default {
     <section>
       <div class="card">
         <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">學習歷程</h2>
-        <div style="position: relative; padding-left: 2rem;">
+        <div style="position: relative; padding-left: 2rem;" class="timeline-container">
           <!-- 時間線 -->
           <div style="position: absolute; left: 1rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #667eea, #764ba2);"></div>
           
           <!-- 學習階段 -->
-          <div v-for="(exp, index) in workExperience" :key="index" style="position: relative; margin-bottom: 3rem; background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-left: 2rem;">
+          <div v-for="(exp, index) in workExperience" :key="index" style="position: relative; margin-bottom: 3rem; background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-left: 2rem;" class="timeline-item">
             <!-- 時間點 -->
             <div style="position: absolute; left: -3rem; top: 2rem; width: 1rem; height: 1rem; background: #667eea; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);"></div>
             
@@ -340,3 +340,81 @@ export default {
     </section>
   </div>
 </template>
+
+<style scoped>
+/* 響應式設計 - 手機版 */
+@media (max-width: 768px) {
+  .about-intro {
+    display: block !important;
+    text-align: center;
+  }
+  
+  .about-intro > div:first-child {
+    margin-bottom: 2rem;
+  }
+  
+  .about-intro h1 {
+    font-size: 2rem !important;
+  }
+  
+  .about-intro p {
+    font-size: 1rem !important;
+    text-align: left;
+  }
+  
+  /* 調整大頭照大小 */
+  .about-intro img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  .about-intro > div:first-child > div:first-child {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  /* 調整技能進度條在手機上的顯示 */
+  .card {
+    padding: 1.5rem !important;
+  }
+  
+  /* 調整時間線在手機上的顯示 */
+  .timeline-container {
+    padding-left: 1rem !important;
+  }
+  
+  .timeline-item {
+    margin-left: 1rem !important;
+    padding: 1.5rem !important;
+  }
+  
+  /* 時間線內容在手機上垂直排列 */
+  .timeline-item > div {
+    display: block !important;
+    gap: 1rem !important;
+  }
+  
+  .timeline-item > div > div:last-child {
+    text-align: left !important;
+    margin-top: 1rem;
+  }
+  
+  /* 調整時間標籤 */
+  .timeline-item span {
+    display: inline-block !important;
+    margin-top: 0.5rem;
+  }
+}
+
+/* 平板版 */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .about-intro {
+    grid-template-columns: 1fr 1.5fr !important;
+    gap: 2rem !important;
+  }
+  
+  .about-intro h1 {
+    font-size: 2.2rem !important;
+  }
+}
+</style>
