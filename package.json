@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-web",
+  "version": "1.0.0",
+  "description": "個人前端作品集網站 - 展示技術能力與專案作品",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "keywords": [
+    "portfolio",
+    "vue",
+    "frontend",
+    "web-development"
+  ],
+  "author": "Leroy",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4",
+    "axios": "^1.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.4.5",
+    "gh-pages": "^5.0.0"
+  }
+}
