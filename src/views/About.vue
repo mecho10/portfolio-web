@@ -3,7 +3,46 @@ export default {
   name: 'About',
   data() {
     return {
-      resumePhoto: '/images/resume.jpg'
+      resumePhoto: '/images/resume.jpg',
+      experience: '自學中',
+      workExperience: [
+        {
+          position: '進階專案實作',
+          company: '個人學習',
+          period: '2024.06 - 現在',
+          tasks: [
+            '建立完整的 Vue.js 和 React 作品集專案',
+            '學習並實作 API 串接與錯誤處理',
+            '練習響應式設計與用戶體驗優化',
+            '掌握 Git 版本控制與 GitHub 協作流程',
+            '研讀前端最佳實踐與代碼品質標準'
+          ]
+        },
+        {
+          position: 'JavaScript 與框架學習',
+          company: '線上課程 & 實作練習',
+          period: '2024.01 - 2024.05',
+          tasks: [
+            '透過 MDN、Vue.js 官方文檔學習核心概念',
+            '完成多個小型專案練習程式邏輯',
+            '學習 ES6+ 語法與現代 JavaScript 特性',
+            '練習 DOM 操作與事件處理',
+            '建立第一個 React 和 Vue.js 應用程式'
+          ]
+        },
+        {
+          position: 'HTML/CSS 基礎建立',
+          company: '自學起步',
+          period: '2023.09 - 2023.12',
+          tasks: [
+            '學習 HTML5 語義化標籤與網頁結構',
+            '掌握 CSS3 樣式設計與 Flexbox、Grid 佈局',
+            '練習響應式設計與媒體查詢',
+            '了解網頁無障礙設計基本原則',
+            '建立第一個靜態網頁作品'
+          ]
+        }
+      ]
     }
   },
   mounted() {
@@ -189,6 +228,38 @@ export default {
             </div>
             <div style="width: 20px; height: 20px; background: #667eea; border-radius: 50%; border: 4px solid white; position: relative; z-index: 1;"></div>
             <div style="flex: 1;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 學習歷程 -->
+    <section>
+      <div class="card">
+        <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">學習歷程</h2>
+        <div style="position: relative; padding-left: 2rem;">
+          <!-- 時間線 -->
+          <div style="position: absolute; left: 1rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #667eea, #764ba2);"></div>
+          
+          <!-- 學習階段 -->
+          <div v-for="(exp, index) in workExperience" :key="index" style="position: relative; margin-bottom: 3rem; background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-left: 2rem;">
+            <!-- 時間點 -->
+            <div style="position: absolute; left: -3rem; top: 2rem; width: 1rem; height: 1rem; background: #667eea; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);"></div>
+            
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start;">
+              <div>
+                <h3 style="color: #667eea; margin-bottom: 0.5rem; font-size: 1.3rem;">{{ exp.position }}</h3>
+                <p style="color: #999; margin-bottom: 1rem; font-weight: 500;">{{ exp.company }}</p>
+                <ul style="color: #666; line-height: 1.8;">
+                  <li v-for="task in exp.tasks" :key="task" style="margin-bottom: 0.5rem;">{{ task }}</li>
+                </ul>
+              </div>
+              <div style="text-align: right;">
+                <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500;">
+                  {{ exp.period }}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
